@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "portfolio",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "0",
+  "author": "Andy Walpole <me@andywalpole.me>",
   "dependencies": {
     "gatsby": "^2.3.3",
     "gatsby-image": "^2.0.35",
@@ -19,12 +19,13 @@
     "react-helmet": "^5.2.0"
   },
   "devDependencies": {
-    "prettier": "^1.16.4"
+    "prettier": "^1.16.4",
+    "prettier-standard": "^9.1.1"
   },
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "ISC",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
