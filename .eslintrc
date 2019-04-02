@@ -1,0 +1,55 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "plugins": [
+    "jest",
+    "react",
+    "jsx-a11y"
+  ],
+  "parserOptions": {
+    "parser": "babel-eslint",
+    "sourceType": "module",
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "globals": {
+    "inject": true,
+    "react": true,
+    "amd": true,
+    "browser": true,
+    "commonjs": true,
+    "node": true
+  },
+  "extends": [
+    "standard",
+    "standard-react",
+    "plugin:jest/recommended",
+    "eslint:recommended",
+    "plugin:react/all"
+  ],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "sort-imports": [0, {
+      "ignoreCase": false,
+      "ignoreMemberSort": false,
+      "memberSyntaxSortOrder": ["none", "all", "multiple", "single"]
+    }],
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent-props": [2, "tab"],
+    "react/no-set-state": [0],
+    "react/jsx-max-depth": [2, { "max": 3 }], // temp, chanage back to 2
+    "react/no-unknown-property": [2, { "ignore": [ "fill-rule", "clip-rule" ] }],
+    "react/no-multi-comp": [2, { "ignoreStateless": true }]
+  },
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.0"
+    }
+  }
+}
