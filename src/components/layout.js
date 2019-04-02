@@ -11,7 +11,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Header from './header';
 import './css/reset.css';
-import './layout.css';
+import styles from './layout.module.css';
 
 const Gatsby = `Gatsby`;
 const built = `Built with`;
@@ -42,7 +42,7 @@ const Layout = ( { children } ) => (
 					<main>
 						{children}
 					</main>
-					<footer>
+					<footer className={styles.whatever}>
 						{copyright}
 						{new Date().getFullYear()}
 						{built}
