@@ -12,22 +12,25 @@ const go = `Go to page 2`;
 
 const IndexPage = () => (
 	<Layout>
-		<Seo title="Home" keywords={[`application`, `gatsby`, `react`]}/>
+		<Seo
+			keywords={[`application`, `gatsby`, `react`]}
+			title="Home"
+		/>
 		<h1>
-      {hi}
+			{hi}
 		</h1>
 		<p>
-      {welcome}
-    </p>
+			{welcome}
+		</p>
 		<p>
-      {now}
-    </p>
+			{now}
+		</p>
 		<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-			<Image/>
+			<Image />
 		</div>
 		<Link to="/page-2/">
-      {go}
-    </Link>
+			{go}
+		</Link>
 	</Layout>
 )
 

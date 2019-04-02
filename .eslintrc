@@ -44,7 +44,9 @@
     "react/no-set-state": [0],
     "react/jsx-max-depth": [2, { "max": 3 }], // temp, chanage back to 2
     "react/no-unknown-property": [2, { "ignore": [ "fill-rule", "clip-rule" ] }],
-    "react/no-multi-comp": [2, { "ignoreStateless": true }]
+    "react/no-multi-comp": [2, { "ignoreStateless": true }],
+    "react/jsx-fragments": [0],
+    "react/forbid-component-props": [2, { "forbid": [ "className" ]}]
   },
   "settings": {
     "react": {
