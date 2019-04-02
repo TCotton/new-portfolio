@@ -67,14 +67,12 @@ function Seo ( { lang, meta, keywords, title } ) {
 }
 
 Seo.defaultProps = {
-	description: ``,
 	keywords: [],
 	lang: `en`,
 	meta: [],
 }
 
 Seo.propTypes = {
-	description: PropTypes.string,
 	keywords: PropTypes.arrayOf( PropTypes.string ),
 	lang: PropTypes.string,
 	meta: PropTypes.arrayOf( PropTypes.object ),
