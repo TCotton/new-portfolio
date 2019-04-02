@@ -1,7 +1,6 @@
 {
   "name": "portfolio",
-  "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A portfolio built on the JAMSTACK",
   "version": "0",
   "author": "Andy Walpole <me@andywalpole.me>",
   "dependencies": {
@@ -20,25 +19,30 @@
   },
   "devDependencies": {
     "prettier": "^1.16.4",
-    "prettier-standard": "^9.1.1"
+    "prettier-standard": "^9.1.1",
+    "standard": "^12.0.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
   "license": "ISC",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write src/**/*.{js,jsx}",
+    "format": "prettier-standard --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "git+https://github.com/TCotton/new-portfolio.git"
   },
+  "keywords": [
+    "jamstack",
+    "gastbyjs",
+    "react",
+    "gatsby"
+  ],
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  }
+    "url": "https://github.com/TCotton/new-portfolio/issues"
+  },
+  "homepage": "https://github.com/TCotton/new-portfolio#readme"
 }
