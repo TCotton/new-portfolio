@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "description": "A portfolio built on the JAMSTACK",
-  "version": "0",
+  "version": "0.0.1",
   "author": "Andy Walpole <me@andywalpole.me>",
   "dependencies": {
     "gatsby": "^2.3.3",
