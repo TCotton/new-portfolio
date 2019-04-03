@@ -48,7 +48,8 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "jest --coverage",
-    "lint": "eslint --color ."
+    "lint": "eslint --color .",
+    "clearJest": "jest --clearCache && npm run test -- -u"
   },
   "repository": {
     "type": "git",
