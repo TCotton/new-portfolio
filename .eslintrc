@@ -53,5 +53,6 @@
       "pragma": "React",
       "version": "16.0"
     }
-  }
+  },
+  "parser": "babel-eslint"
 }
