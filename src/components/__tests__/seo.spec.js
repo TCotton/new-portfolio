@@ -3,7 +3,6 @@ import renderer from 'react-test-renderer';
 
 import Seo from '../seo';
 import { StaticQuery } from 'gatsby'
-import Layout from '../layout'
 
 beforeEach(() => {
 	StaticQuery.mockImplementationOnce(({ render }) =>
@@ -18,7 +17,7 @@ beforeEach(() => {
 	)
 });
 
-describe('Layout', () => {
+describe('SEO', () => {
 
 	let props = {
 		description: 'Text',
