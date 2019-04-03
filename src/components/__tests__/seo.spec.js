@@ -1,8 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-import Layout from '../layout';
-import { StaticQuery } from 'gatsby';
+import Seo from '../seo';
+import { StaticQuery } from 'gatsby'
+import Layout from '../layout'
 
 beforeEach(() => {
 	StaticQuery.mockImplementationOnce(({ render }) =>
@@ -10,19 +11,28 @@ beforeEach(() => {
 			site: {
 				siteMetadata: {
 					title: `The portfolio and blog of web developer Andy Walpole`,
+					author: `Andy Walpole`,
 				},
 			},
 		})
 	)
-})
+});
 
 describe('Layout', () => {
+
+	let props = {
+		description: 'Text',
+		lang: 'Text',
+		meta: [],
+		keywords: ['Text'],
+		title: 'Text'
+	};
+
 	it('renders correctly', () => {
 		const tree = renderer
 			.create(
-				<Layout>
-					<div />
-				</Layout>)
+				<Seo {...props} />
+				)
 			.toJSON()
 		expect(tree).toMatchSnapshot();
 	})
