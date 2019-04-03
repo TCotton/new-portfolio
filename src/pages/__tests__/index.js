@@ -1,13 +1,14 @@
 import React from "react"
 import renderer from "react-test-renderer"
-import { StaticQuery } from "gatsby"
+import { useStaticQuery } from "gatsby"
 import Index from "../index"
 
 beforeEach(() => {
-	StaticQuery.mockImplementationOnce(({ render }) =>
+	useStaticQuery.mockImplementationOnce(({ render }) =>
 		render({
 			site: {
 				siteMetadata: {
+					description: 'whatever',
 					title: `The portfolio and blog of web developer Andy Walpole`,
 					author: `Andy Walpole`,
 				},
@@ -27,7 +28,7 @@ describe("Index", () => {
 			},
 		}
 
-		const tree = renderer.create(<Index data={data} />).toJSON()
-		expect(tree).toMatchSnapshot()
+		const tree = renderer.create(<Index data={data} />).toJSON();
+		expect(tree).toMatchSnapshot();
 	})
 })

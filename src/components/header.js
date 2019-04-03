@@ -9,11 +9,11 @@ class Header extends Component {
 	}
 
 	static defaultProps = {
-		siteTitle: ``
+		siteTitle: ``,
 	}
 
 	constructor(props) {
-		super(props)
+		super(props);
 	}
 
 	shouldComponentUpdate () {
