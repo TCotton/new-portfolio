@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout renders correctly 1`] = `
+Array [
+  <header
+    style={
+      Object {
+        "background": "rebeccapurple",
+        "marginBottom": "1.45rem",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "margin": "0 auto",
+          "maxWidth": 960,
+          "padding": "1.45rem 1.0875rem",
+        }
+      }
+    >
+      <h1
+        style={
+          Object {
+            "margin": 0,
+          }
+        }
+      >
+        <a
+          href="/"
+          style={
+            Object {
+              "color": "white",
+              "textDecoration": "none",
+            }
+          }
+        >
+          The portfolio and blog of web developer Andy Walpole
+        </a>
+      </h1>
+    </div>
+  </header>,
+  <div
+    style={
+      Object {
+        "margin": "0 auto",
+        "maxWidth": 960,
+        "padding": "0px 1.0875rem 1.45rem",
+        "paddingTop": 0,
+      }
+    }
+  >
+    <main>
+      <div />
+    </main>
+    <footer
+      className="whatever"
+    >
+      ©
+      2019
+      Built with
+       
+      <a
+        href="https://www.gatsbyjs.org"
+      >
+        Gatsby
+      </a>
+    </footer>
+  </div>,
+]
+`;
