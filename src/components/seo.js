@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
-import favicon from '../images/favicon.ico';
+import favicon from '../../static/favicon.ico';
 
 class Seo extends Component {
 

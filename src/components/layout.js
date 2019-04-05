@@ -11,12 +11,10 @@ import { StaticQuery, graphql } from 'gatsby';
 import { connect } from 'react-redux';
 
 import Header from './header';
+import Footer from './footer';
 import './css/reset.css';
 import styles from './layout.module.css';
 
-const Gatsby = `Gatsby`;
-const built = `Built with`;
-const copyright = `©`;
 const Count = `Count: `;
 const Increment = `Increment`;
 
@@ -99,15 +97,7 @@ class Layout extends Component {
 								{children}
 								<ConnectedCounter />
 							</main>
-							<footer className={styles.whatever}>
-								{copyright}
-								{new Date().getFullYear()}
-								{built}
-								{` `}
-								<a href="https://www.gatsbyjs.org">
-									{Gatsby}
-								</a>
-							</footer>
+							<Footer />
 						</div>
 					</React.Fragment>
 				)}
