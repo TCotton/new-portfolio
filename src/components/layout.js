@@ -8,10 +8,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 
 import Header from './header';
 import Footer from './footer';
+import HomePageStats from './homepage-stats';
 import './css/reset.css';
 import styles from './layout.module.css';
 
@@ -85,17 +86,11 @@ class Layout extends Component {
 				render={data => (
 					<React.Fragment>
 						<Header siteTitle={data.site.siteMetadata.title} />
-						<div
-							style={{
-								margin: `0 auto`,
-								maxWidth: 960,
-								padding: `0px 1.0875rem 1.45rem`,
-								paddingTop: 0,
-							}}
-						>
+						<div>
 							<main>
 								{children}
 								<ConnectedCounter />
+								<HomePageStats />
 							</main>
 							<Footer />
 						</div>
