@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
+    "autoprefixer": "^9.5.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.6.0",
     "babel-preset-gatsby": "^0.1.10",
@@ -35,6 +36,7 @@
     "eslint-plugin-standard": "^4.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.6.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
     "prettier": "^1.16.4",
     "prettier-standard": "^9.1.1",
     "react-test-renderer": "^16.8.6",

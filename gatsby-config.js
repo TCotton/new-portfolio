@@ -9,7 +9,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
-        postCssPlugins: [],
+        postCssPlugins: [
+          require(`postcss-flexbugs-fixes`),
+          require(`autoprefixer`)({ stage: 0 })
+        ],
       },
     },
     {
