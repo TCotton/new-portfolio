@@ -3,6 +3,7 @@ import renderer from 'react-test-renderer';
 
 import Layout from '../layout';
 import { StaticQuery } from 'gatsby';
+import { Provider } from 'react-redux';
 
 beforeEach(() => {
 	StaticQuery.mockImplementationOnce(({ render }) =>
@@ -20,9 +21,11 @@ describe('Layout', () => {
 	it('renders correctly', () => {
 		const tree = renderer
 			.create(
-				<Layout>
-					<div />
-				</Layout>)
+				<Provider store={{}}>
+					<Layout>
+						<div />
+					</Layout>
+				</Provider>)
 			.toJSON()
 		expect(tree).toMatchSnapshot();
 	})

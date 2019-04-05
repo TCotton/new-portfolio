@@ -1,4 +1,4 @@
-import { createStore as reduxCreateStore } from "redux"
+import { createStore as reduxCreateStore } from 'redux';
 
 const reducer = (state, action) => {
 	if (action.type === `INCREMENT`) {
@@ -6,10 +6,10 @@ const reducer = (state, action) => {
 			count: state.count + 1,
 		})
 	}
-	return state
+	return state;
 }
 
-const initialState = { count: 0 }
+const initialState = { count: 0 };
 
 const createStore = () => reduxCreateStore(reducer, initialState)
-export default createStore
+export default createStore;

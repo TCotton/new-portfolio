@@ -14,10 +14,24 @@ import Header from './header';
 import './css/reset.css';
 import styles from './layout.module.css';
 
+const Gatsby = `Gatsby`;
+const built = `Built with`;
+const copyright = `©`;
+const Count = `Count: `;
+const Increment = `Increment`;
+
 const Counter = ({ count, increment }) => (
 	<div>
-		<p>Count: {count}</p>
-		<button onClick={increment}>Increment</button>
+		<p>
+			{Count}
+			{count}
+		</p>
+		<button
+			onClick={increment}
+			type='button'
+		>
+			{Increment}
+		</button>
 	</div>
 )
 
@@ -38,10 +52,6 @@ const ConnectedCounter = connect(
 	mapStateToProps,
 	mapDispatchToProps
 )(Counter);
-
-const Gatsby = `Gatsby`;
-const built = `Built with`;
-const copyright = `©`;
 
 class Layout extends Component {
 

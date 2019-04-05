@@ -46,7 +46,7 @@ beforeEach( () => {
 
 } );
 
-describe.only( "Index", () => {
+describe( "Index", () => {
 	it( "renders correctly", () => {
 
 		const tree = renderer.create( <Index /> ).toJSON();
