@@ -1,5 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
+import configureStore from 'redux-mock-store';
 
 import Layout from '../layout';
 import { StaticQuery } from 'gatsby';
@@ -19,9 +20,11 @@ beforeEach(() => {
 
 describe('Layout', () => {
 	it('renders correctly', () => {
+		const mockStore = configureStore();
+		const store = mockStore();
 		const tree = renderer
 			.create(
-				<Provider store={{}}>
+				<Provider store={store}>
 					<Layout>
 						<div />
 					</Layout>

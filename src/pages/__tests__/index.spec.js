@@ -1,7 +1,9 @@
 import React from "react"
 import renderer from "react-test-renderer"
 import { StaticQuery } from "gatsby"
-import Index from "../index"
+import Index from "../index";
+import configureStore from 'redux-mock-store';
+import { Provider } from 'react-redux'
 
 beforeEach( () => {
 
@@ -49,7 +51,14 @@ beforeEach( () => {
 describe( "Index", () => {
 	it( "renders correctly", () => {
 
-		const tree = renderer.create( <Index /> ).toJSON();
+		const mockStore = configureStore();
+		const store = mockStore();
+
+		const tree = renderer.create(
+			<Provider store={store}>
+				<Index />
+			</Provider>
+				).toJSON();
 		expect( tree ).toMatchSnapshot();
 	} )
 } )

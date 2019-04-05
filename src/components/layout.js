@@ -20,7 +20,7 @@ const copyright = `©`;
 const Count = `Count: `;
 const Increment = `Increment`;
 
-const Counter = ({ count, increment }) => (
+const Counter = ({ count , increment }) => (
 	<div>
 		<p>
 			{Count}
@@ -35,9 +35,15 @@ const Counter = ({ count, increment }) => (
 	</div>
 )
 
+Counter.defaultProps = {
+	count: 0,
+	increment: 0,
+}
+
+
 Counter.propTypes = {
-	count: PropTypes.number.isRequired,
-	increment: PropTypes.func.isRequired,
+	count: PropTypes.number,
+	increment: PropTypes.func,
 }
 
 const mapStateToProps = ({ count }) => {

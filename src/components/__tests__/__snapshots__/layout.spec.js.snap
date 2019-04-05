@@ -52,6 +52,18 @@ Array [
   >
     <main>
       <div />
+      <div>
+        <p>
+          Count: 
+          0
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Increment
+        </button>
+      </div>
     </main>
     <footer
       className="whatever"
