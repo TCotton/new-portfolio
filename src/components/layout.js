@@ -8,10 +8,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
+import { connect } from 'react-redux';
 
 import Header from './header';
 import './css/reset.css';
 import styles from './layout.module.css';
+
+const Counter = ({ count, increment }) => (
+	<div>
+		<p>Count: {count}</p>
+		<button onClick={increment}>Increment</button>
+	</div>
+)
+
+Counter.propTypes = {
+	count: PropTypes.number.isRequired,
+	increment: PropTypes.func.isRequired,
+}
+
+const mapStateToProps = ({ count }) => {
+	return { count }
+}
+
+const mapDispatchToProps = dispatch => {
+	return { increment: () => dispatch({ type: `INCREMENT` }) }
+}
+
+const ConnectedCounter = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(Counter);
 
 const Gatsby = `Gatsby`;
 const built = `Built with`;
@@ -55,6 +81,7 @@ class Layout extends Component {
 						>
 							<main>
 								{children}
+								<ConnectedCounter />
 							</main>
 							<footer className={styles.whatever}>
 								{copyright}
