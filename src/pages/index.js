@@ -13,7 +13,7 @@ const go = `Go to page 2`;
 const IndexPage = () => (
 	<Layout>
 		<Seo
-			keywords={[`application`, `gatsby`, `react`]}
+			keywords={[ `application`, `gatsby`, `react` ]}
 			title="Home"
 		/>
 		<h1>
