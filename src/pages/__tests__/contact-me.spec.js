@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import renderer from 'react-test-renderer';
 import ContactMe from '../contact-me';
@@ -65,3 +66,4 @@ describe( 'ContactMe', () => {
 		expect( shouldUpdate ).toBe( true );
 	} );*/
 } )
+/* eslint-enable */
