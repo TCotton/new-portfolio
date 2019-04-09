@@ -9,7 +9,7 @@ class ContactMeRightSmall extends Component {
 	render () {
 
 		return (
-			<div className='contact__right-small'>
+			<div className='contact-right-small'>
 				<h4 className='content-title'>
 					{`Get in touch`}
 				</h4>
