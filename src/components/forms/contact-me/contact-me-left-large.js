@@ -1,12 +1,106 @@
 import React, { Component } from 'react';
+import validator from 'validator';
 
 class ContactMeLeftLarge extends Component {
+
+	constructor(props) {
+		super(props);
+
+		this.handleSubmit = this.handleSubmit.bind( this );
+		this.handleInputChange = this.handleInputChange.bind( this );
+	}
+
+	state = {
+		email: '',
+		error: null,
+		message: '',
+		name: '',
+		success: null,
+		zipcode: ''
+	};
 
 	shouldComponentUpdate () {
 		return true;
 	}
 
+	validation ( name, value ) {
+		let formValid = true;
+		let nameValid = true;
+		let messageValid = true;
+		let emailValid = true;
+
+		switch( name ) {
+			case 'name':
+				if( validator.isEmpty(value) ) {
+					formValid nameValid = false;
+					errors.push(`Please don't leave the ${name} field empty`);
+					console.dir( 'name' );
+				}
+				break;
+		case 'message':
+			if( validator.isEmpty(value) ) {
+				errors.push(`Please don't leave the ${name} field empty`);
+				console.dir( 'name' );
+			}
+			break;
+			case 'email':
+				if( validator.isEmail( value ) ) {
+					console.dir('email');
+				}
+				break;
+			case 'zipcode':
+				if( !validator.isEmpty(value) ) {
+					console.dir( 'zipcode' );
+				}
+				break;
+			default:
+				break;
+		}
+
+		this.setState( {
+			formErrors: fieldValidationErrors,
+			emailValid: emailValid,
+			passwordValid: passwordValid
+		}, this.validateForm );
+
+	}
+
+	handleSubmit ( event ) {
+		event.preventDefault();
+
+		Array.from(event.target.elements).forEach((content) => {
+			console.dir(content.type);
+			this.validation(content.type, content.value);
+		});
+
+		// console.dir(event.target.elements);
+
+		// this.validation(event);
+	}
+
+	handleInputChange (event) {
+
+		const target = event.target;
+		const value = target.value;
+		const name = target.name;
+
+		this.setState({
+			[name]: value
+		});
+
+	}
+
 	render () {
+
+		const {
+			email,
+			error,
+			message,
+			name,
+			success,
+			zipcode
+		} = this.state;
+
 		return (
 			<div className='contact-left-large'>
 				<div className='hidden-desktop'>
@@ -33,13 +127,22 @@ class ContactMeLeftLarge extends Component {
 					{'Send a message'}
 				</h3>
 
-				<p className='contact-form-success' />
+				{success &&
+				<p className='contact-form-success'>
+					{success}
+				</p>
+				}
 
-				<p className='contact-form-failure' />
+				{error &&
+				<p className='contact-form-failure'>
+					{error}
+				</p>
+				}
 
 				<form
 					name='contactForm'
 					noValidate='novalidate'
+					onSubmit={this.handleSubmit}
 				>
 					<span className='form-division-blocks'>
 
@@ -63,10 +166,11 @@ class ContactMeLeftLarge extends Component {
 							id='name'
 							maxLength='64'
 							name='name'
+							onChange={this.handleInputChange}
 							placeholder='Your full name'
 							required='required'
 							type='text'
-							value=''
+							value={name}
 						/>
 					</span>
 
@@ -95,10 +199,11 @@ class ContactMeLeftLarge extends Component {
 							id='email'
 							maxLength='64'
 							name='email'
+							onChange={this.handleInputChange}
 							placeholder='Your email address'
 							required='required'
 							type='email'
-							value=''
+							value={email}
 						/>
 					</span>
 
@@ -126,9 +231,11 @@ class ContactMeLeftLarge extends Component {
 							id='message'
 							maxLength='1000'
 							name='message'
+							onChange={this.handleInputChange}
 							placeholder='Your message'
 							required='required'
 							rows='10'
+							value={message}
 						/>
 
 					</span>
@@ -147,11 +254,19 @@ class ContactMeLeftLarge extends Component {
 							data-ng-pattern='zipRegex'
 							id='zipcode'
 							name='zipcode'
+							onChange={this.handleInputChange}
 							type='text'
-							value=''
+							value={zipcode}
 						/>
 
 					</span>
+
+					<input
+						className='button-contact'
+						type='submit'
+						value='Send message'
+					/>
+
 				</form>
 			</div>
 		);

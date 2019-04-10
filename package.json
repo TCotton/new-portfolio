@@ -22,7 +22,8 @@
     "react-redux": "^6.0.1",
     "react-typography": "^0.16.19",
     "redux": "^4.0.1",
-    "typography": "^0.16.19"
+    "typography": "^0.16.19",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.11",
