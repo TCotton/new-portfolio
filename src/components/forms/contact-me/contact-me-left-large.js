@@ -1,5 +1,26 @@
 import React, { Component } from 'react';
-import validator from 'validator';
+import PropTypes from 'prop-types';
+
+const ErrorValidationAlert = ({ txtLbl }) => (
+	<span
+		className='form-error-message'
+		role='alert'
+		tabIndex='0'
+	>
+		{txtLbl}
+	</span>
+);
+
+ErrorValidationAlert.propTypes = {
+	txtLbl: PropTypes.string.isRequired
+}
+
+const txtFieldState = {
+	value: '',
+	valid: true,
+	typeMismatch: false,
+	errMsg: ''
+};
 
 class ContactMeLeftLarge extends Component {
 
@@ -11,81 +32,109 @@ class ContactMeLeftLarge extends Component {
 	}
 
 	state = {
-		email: '',
-		error: null,
-		message: '',
-		name: '',
-		success: null,
-		zipcode: ''
-	};
+		email: {
+			...txtFieldState,
+			fieldName: 'Your email address',
+			required: true,
+			requiredTxt: 'Please supply a valid email address.',
+			formatErrorTxt: 'Incorrect email format'
+		},
+		message: {
+			...txtFieldState,
+			fieldName: 'Please write a message',
+			required: true,
+			requiredTxt: 'Don\'t forget to write a message!'
+		},
+		name: {
+			...txtFieldState,
+			fieldName: 'Your full name',
+			required: true,
+			requiredTxt: 'Please supply your name'
+		},
+		zipcode: {
+			...txtFieldState,
+			fieldName: 'zipcode',
+			required: false,
+			requiredTxt: `Don't include zipcode`
+		},
+		allFieldsValid: false
+	}
 
 	shouldComponentUpdate () {
 		return true;
 	}
 
-	validation ( name, value ) {
-		let formValid = true;
-		let nameValid = true;
-		let messageValid = true;
-		let emailValid = true;
+	reduceFormValues = formElements => {
+		const arrElements = Array.from(formElements);
 
-		switch( name ) {
-			case 'name':
-				if( validator.isEmpty(value) ) {
-					formValid nameValid = false;
-					errors.push(`Please don't leave the ${name} field empty`);
-					console.dir( 'name' );
-				}
-				break;
-		case 'message':
-			if( validator.isEmpty(value) ) {
-				errors.push(`Please don't leave the ${name} field empty`);
-				console.dir( 'name' );
-			}
-			break;
-			case 'email':
-				if( validator.isEmail( value ) ) {
-					console.dir('email');
-				}
-				break;
-			case 'zipcode':
-				if( !validator.isEmpty(value) ) {
-					console.dir( 'zipcode' );
-				}
-				break;
-			default:
-				break;
-		}
+		// extract specific properties in Constraint Validation API using this code snippet
+		const formValues = arrElements
+			.filter(elem => elem.name.length > 0)
+			.map(x => {
+				const { typeMismatch } = x.validity;
+				const { name, type, value } = x;
 
-		this.setState( {
-			formErrors: fieldValidationErrors,
-			emailValid: emailValid,
-			passwordValid: passwordValid
-		}, this.validateForm );
+				return {
+					name,
+					type,
+					typeMismatch, // use typeMismatch when format is incorrect(e.g. incorrect email)
+					value,
+					valid: x.checkValidity()
+				};
+			})
+			.reduce((acc, currVal) => {
+				//use reduce, ready to put it in our state
+				const { value, valid, typeMismatch } = currVal;
+				const { fieldName, requiredTxt, formatErrorTxt } = this.state[ currVal.name ]; // eslint-disable-line
+				//get the rest of properties inside the state object
 
-	}
+				// map these properties back to state so we use reducer...
+				acc[currVal.name] = {
+					value,
+					valid,
+					typeMismatch,
+					fieldName,
+					requiredTxt,
+					formatErrorTxt
+				};
+
+				return acc;
+			}, {});
+
+		return formValues;
+	};
+
+	checkAllFieldsValid = formValues => {
+		return !Object.keys(formValues)
+			.map(x => formValues[x])
+			.some(field => !field.valid);
+	};
 
 	handleSubmit ( event ) {
 		event.preventDefault();
 
-		Array.from(event.target.elements).forEach((content) => {
-			console.dir(content.type);
-			this.validation(content.type, content.value);
-		});
+		const form = event.target;
 
-		// console.dir(event.target.elements);
+		// extract specific properties in Constraint Validation API using this code snippet
+		const formValues = this.reduceFormValues(form.elements);
+		const allFieldsValid = this.checkAllFieldsValid(formValues);
+		//note: put ajax calls here to persist the form inputs in the database.
 
-		// this.validation(event);
+		//END
+
+		this.setState({ ...formValues, allFieldsValid }); // set the state based on the extracted values from Constraint Validation API
 	}
 
 	handleInputChange (event) {
 
 		const target = event.target;
-		const value = target.value;
+		const targetValue = target.value;
 		const name = target.name;
 
 		this.setState({
-			[name]: value
+			[name]: {
+				value: targetValue
+			}
 		});
 
 	}
@@ -93,13 +142,36 @@ class ContactMeLeftLarge extends Component {
 	render () {
 
 		const {
+			allFieldsValid,
 			email,
-			error,
-			message,
 			name,
-			success,
-			zipcode
+			message,
+			zipcode,
 		} = this.state;
+
+		const successFormDisplay = allFieldsValid ? 'block' : 'none';
+		const inputFormDisplay = !allFieldsValid ? 'block' : 'none';
+
+		const renderEmailValidationError = email.valid ? (
+			''
+		) : (
+			<ErrorValidationAlert
+				txtLbl={email.typeMismatch ? email.formatErrorTxt : email.requiredTxt}
+			/>
+		);
+
+		const renderNameValidationError = name.valid ? (
+			''
+		) : (
+			<ErrorValidationAlert txtLbl={name.requiredTxt} />
+		);
+
+		const renderMessageValidationError = message.valid ? (
+			''
+		) : (
+			<ErrorValidationAlert txtLbl={message.requiredTxt} />
+		);
+
 
 		return (
 			<div className='contact-left-large'>
@@ -127,17 +199,13 @@ class ContactMeLeftLarge extends Component {
 					{'Send a message'}
 				</h3>
 
-				{success &&
-				<p className='contact-form-success'>
-					{success}
+				<p className={`contact-form-success ${successFormDisplay}`}>
+					{'Success message here'}
 				</p>
-				}
 
-				{error &&
-				<p className='contact-form-failure'>
-					{error}
+				<p className={`contact-form-failure ${inputFormDisplay}`}>
+					{'Error message here'}
 				</p>
-				}
 
 				<form
 					name='contactForm'
@@ -146,96 +214,76 @@ class ContactMeLeftLarge extends Component {
 				>
 					<span className='form-division-blocks'>
 
+						{renderNameValidationError}
+
 						<label
 							className='visuallyhidden'
 							htmlFor='name'
 						>
-							{'Your full name'}
+							{name.fieldName}
 						</label>
 
-						<span
-							aria-labelledby='name'
-							className='form-error-message'
-							role='alert'
-							tabIndex='0'
-						>
-							{'Please supply your name'}
-						</span>
 						<input
-							className='form__input'
+							className='form-input'
 							id='name'
 							maxLength='64'
 							name='name'
 							onChange={this.handleInputChange}
-							placeholder='Your full name'
+							placeholder={name.fieldName}
 							required='required'
 							type='text'
-							value={name}
+							value={name.value}
 						/>
 					</span>
 
 					<span className='form-division-blocks'>
+
+						{renderEmailValidationError}
 
 						<label
 							className='visuallyhidden'
 							htmlFor='email'
 						>
-							{'Your email address'}
+							{email.fieldName}
 						</label>
-
-						<span
-							aria-labelledby='email'
-							className='form__error-message'
-							role='alert'
-							tabIndex='0'
-						>
-							{'Please supply a valid email address.'}
-						</span>
 
 						<input
 							autoCapitalize='off'
 							autoCorrect='off'
-							className='form__input'
+							className='form-input'
 							id='email'
 							maxLength='64'
 							name='email'
 							onChange={this.handleInputChange}
-							placeholder='Your email address'
+							placeholder={email.fieldName}
 							required='required'
 							type='email'
-							value={email}
+							value={email.value}
 						/>
 					</span>
 
 					<span className='form-division-blocks'>
 
+						{renderMessageValidationError}
+
 						<label
 							className='visuallyhidden'
 							htmlFor='message'
 						>
-							{'Please write a message'}
+							{message.fieldName}
 						</label>
 
-						<span
-							aria-labelledby='message'
-							className='form__error-message'
-							role='alert'
-							tabIndex='0'
-						>
-							{'Don\'t forget to write a message!'}
-						</span>
-
 						<textarea
-							className='form__textarea'
+							className='form-textarea'
 							cols='10'
 							id='message'
 							maxLength='1000'
 							name='message'
 							onChange={this.handleInputChange}
-							placeholder='Your message'
+							placeholder={message.fieldName}
 							required='required'
 							rows='10'
-							value={message}
+							value={message.value}
 						/>
 
 					</span>
@@ -246,17 +294,17 @@ class ContactMeLeftLarge extends Component {
 							className='hide'
 							htmlFor='zipcode'
 						>
-							{'Your zipcode'}
+							{zipcode.fieldName}
 						</label>
 
 						<input
 							className='hide'
-							data-ng-pattern='zipRegex'
 							id='zipcode'
 							name='zipcode'
+							placeholder={zipcode.fieldName}
 							onChange={this.handleInputChange}
 							type='text'
-							value={zipcode}
+							value={zipcode.value}
 						/>
 
 					</span>

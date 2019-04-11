@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactMeLeftLarge renders correctly 1`] = `
+<div
+  className="contact-left-large"
+>
+  <div
+    className="hidden-desktop"
+  >
+    <h4
+      className="content-title"
+    >
+      Get in touch left
+    </h4>
+    <p>
+      Andy Walpole
+      <br />
+      Web Developer
+    </p>
+    <p>
+      <a
+        className="underline"
+        href="mailto:me@andywalpole.me?Subject=Contact%20from%20portfolio"
+      >
+        me@andywalpole.me
+      </a>
+    </p>
+  </div>
+  <h3
+    className="content-title"
+  >
+    Send a message
+  </h3>
+  <p
+    className="contact-form-success none"
+  >
+    Success message here
+  </p>
+  <p
+    className="contact-form-failure block"
+  >
+    Error message here
+  </p>
+  <form
+    name="contactForm"
+    noValidate="novalidate"
+    onSubmit={[Function]}
+  >
+    <span
+      className="form-division-blocks"
+    >
+      
+      <label
+        className="visuallyhidden"
+        htmlFor="name"
+      >
+        Your full name
+      </label>
+      <input
+        className="form-input"
+        id="name"
+        maxLength="64"
+        name="name"
+        onChange={[Function]}
+        placeholder="Your full name"
+        required="required"
+        type="text"
+        value=""
+      />
+    </span>
+    <span
+      className="form-division-blocks"
+    >
+      
+      <label
+        className="visuallyhidden"
+        htmlFor="email"
+      >
+        Your email address
+      </label>
+      <input
+        autoCapitalize="off"
+        autoCorrect="off"
+        className="form-input"
+        id="email"
+        maxLength="64"
+        name="email"
+        onChange={[Function]}
+        placeholder="Your email address"
+        required="required"
+        type="email"
+        value=""
+      />
+    </span>
+    <span
+      className="form-division-blocks"
+    >
+      
+      <label
+        className="visuallyhidden"
+        htmlFor="message"
+      >
+        Please write a message
+      </label>
+      <textarea
+        className="form-textarea"
+        cols="10"
+        id="message"
+        maxLength="1000"
+        name="message"
+        onChange={[Function]}
+        placeholder="Please write a message"
+        required="required"
+        rows="10"
+        value=""
+      />
+    </span>
+    <span
+      className="hide"
+    >
+      <label
+        className="hide"
+        htmlFor="zipcode"
+      >
+        zipcode
+      </label>
+      <input
+        className="hide"
+        id="zipcode"
+        name="zipcode"
+        onChange={[Function]}
+        placeholder="zipcode"
+        type="text"
+        value=""
+      />
+    </span>
+    <input
+      className="button-contact"
+      type="submit"
+      value="Send message"
+    />
+  </form>
+</div>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactMeRightSmall renders correctly 1`] = `
+<div
+  className="contact-right-small"
+>
+  <h4
+    className="content-title"
+  >
+    Get in touch
+  </h4>
+  <p>
+    Andy Walpole
+    <br />
+    Web Developer
+  </p>
+  <p>
+    <a
+      className="underline"
+      href="mailto:me@andywalpole.me?Subject=Contact%20from%20portfolio"
+    >
+      me@andywalpole.me
+    </a>
+  </p>
+</div>
+`;
