@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Layout from '../components/layout';
 
 class WorkProjects extends Component {
 
@@ -8,7 +9,17 @@ class WorkProjects extends Component {
 
 	render () {
 		return (
-			<div />
+			<Layout>
+				<div id='banner'>
+
+					<section>
+						<h2 className='page-top-title'>
+							{'Work projects'}
+						</h2>
+					</section>
+
+				</div>
+			</Layout>
 		);
 	}
 }
