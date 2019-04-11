@@ -1,3 +1,290 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About Me renders correctly 1`] = `<div />`;
+exports[`About Me renders correctly 1`] = `
+Array [
+  <header>
+    <div>
+      <h1>
+        <a
+          href="/"
+        >
+          The portfolio and blog of web developer Andy Walpole
+        </a>
+      </h1>
+    </div>
+  </header>,
+  <div>
+    <main>
+      <div
+        className="banner"
+      >
+        <section>
+          <h2
+            className="page-top-title"
+          >
+            About me
+          </h2>
+        </section>
+        <div
+          className="main-content clearfix aboutme content-text"
+          itemScope={true}
+          itemType="http://schema.org/ProfilePage"
+        >
+          <div
+            className="left-large"
+          >
+            <h3
+              className="content-title"
+            >
+              A little bit about myself
+            </h3>
+            <p>
+              I built my first website with Microsoft Frontpage in 2002, committing myself full-time to web development from 2008 onwards.
+            </p>
+            <p>
+              During this time I have worked with a wide variety of companies and individuals that range from sole traders to multinational corporations.
+            </p>
+            <p>
+              I particularly enjoy working in a team and take great pride in my craftsmanship so as to produce the highest quality code.
+            </p>
+            <h4
+              className="content-title"
+            >
+              My core skill sets and strengths
+            </h4>
+            <section
+              className="clearfix"
+            >
+              <div
+                className="button-skills-aboutme section per_90"
+              >
+                <span>
+                  HTML5
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_90"
+              >
+                <span>
+                  CSS3
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_80"
+              >
+                <span>
+                  JavaScript
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_80"
+              >
+                <span>
+                  AngularJS
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_80"
+              >
+                <span>
+                  SASS
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_70"
+              >
+                <span>
+                  React
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_70"
+              >
+                <span>
+                  npm
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_70"
+              >
+                <span>
+                  Accessibility
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_70"
+              >
+                <span>
+                  Git
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_60"
+              >
+                <span>
+                  SOLID
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_60"
+              >
+                <span>
+                  Vue.js
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_50"
+              >
+                <span>
+                  MongoDB
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_50"
+              >
+                <span>
+                  node.js
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_50"
+              >
+                <span>
+                  Usability
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_30"
+              >
+                <span>
+                  backbone.js
+                </span>
+              </div>
+              <div
+                className="button-skills-aboutme section per_100"
+              >
+                <span>
+                  Willingness to learn more
+                </span>
+              </div>
+            </section>
+          </div>
+          <div
+            className="right-small"
+          >
+            <h5
+              className="content-title"
+            >
+              My CV and online profiles
+            </h5>
+            <p>
+              Please read my Stack Overflow Careers page:
+              <br />
+              <a
+                className="underline"
+                href="https://stackoverflow.com/story/andyw"
+                rel="external"
+              >
+                https://stackoverflow.com/story/andyw
+              </a>
+            </p>
+            <a
+              href="https://twitter.com/andywalpole"
+            >
+              <p>
+                <img
+                  alt="Twitter account of Andy Walpole"
+                  src="/images/svg/twitter.svg"
+                />
+              </p>
+            </a>
+            <p>
+              <img
+                alt="yours truly, the author of this portfolio and blog"
+                src="/images/andyw.jpg"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p>
+          Count: 
+          0
+        </p>
+        <button
+          onClick={[Function]}
+          type="button"
+        >
+          Increment
+        </button>
+      </div>
+      Days working as a full-time web developer
+      Cups of coffee before I start work in the morning
+      Industry RSS feeds I subscribe to using NewsBlur
+      Minutes before I check my Twitter feed after I wake up
+      Unit test coverage of this site using Karma and Jasmine
+    </main>
+    <footer
+      className="footer"
+    >
+      <div
+        className="footer-top"
+      >
+        <a
+          href="https://github.com/TCotton/portfolio"
+        >
+          <pre
+            className="code-preview"
+          >
+            /**
+ 						* This entire site is coded in AngularJS and React. Inspect the code on GitHub: https://github.com/TCotton/portfolio
+ 						*/
+ 						 angular.module('portfolioApp', ['portfolioApp.blogAdminService','portfolioApp.blogAdminController','portfolioApp.blogCommentsDirective','portfolioApp.blogCommentsService','portfolioApp.blogPagesController','portfolioApp.blogPagesDirective','portfolioApp.blogPagesService','portfolioApp.blogPagesFilter','portfolioApp.blogSidebarController','portfolioApp.contractController','portfolioApp.contractService','portfolioApp.footerController','portfolioApp.footerService','portfolioApp.homepageDirective','portfolioApp.miscDirective','portfolioApp.sideProjectsController','portfolioApp.angularReact','portfolioApp.sitemapController','portfolioApp.wordProjectsController','AppConstants','ngResource','ngSanitize','ngRoute','ngAria','HashBangURLs','portfolioAppConfig','jmdobry.angular-cache','underscore','momentLibrary','helperFunctions','requestTimeout','react','detectLocalStorage','appTemplates'
+]).config(function($routeProvider, $httpProvider) {
+
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
+  $routeProvider
+    .when('/', {
+      templateUrl: 'homepage/main.html',
+      title: 'The portfolio and blog of web developer Andy Walpole'
+    })
+    .when('/work-projects', {
+      templateUrl: 'work-projects/my_work.html',
+      title: 'Noteworthy work projects from the past 18 months',
+      controller: 'WorkPageCtrl as WorkProjPageCtrl'
+    })
+    .when('/work-projects/:workPage', {
+      templateUrl: 'work-projects/work_page.html',
+      controller: 'WorkPageCtrl as WorkProjPageCtrl'
+    })
+ 						
+          </pre>
+        </a>
+      </div>
+      <div
+        className="footer-bottom"
+      >
+        <p
+          className="footer-copyright"
+        >
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "&copy; Andy Walpole / ",
+              }
+            }
+          />
+          <a
+            href="/sitemap"
+          >
+            Sitemap
+          </a>
+        </p>
+      </div>
+    </footer>
+  </div>,
+]
+`;

@@ -172,7 +172,6 @@ class ContactMeLeftLarge extends Component {
 			<ErrorValidationAlert txtLbl={message.requiredTxt} />
 		);
 
-
 		return (
 			<div className='contact-left-large'>
 				<div className='hidden-desktop'>
