@@ -83,8 +83,6 @@ time,
 mark,
 audio,
 video,
-context,
-toolbar,
 picture,
 source {
 	margin: 0;
@@ -917,6 +915,22 @@ I would recommend testing this before using it
 	}
 }
 
-a {
-
+:root {
+	--baseFontSize: 62.5;
+	--lineHeight: 2.5;
+	--paragraph: 1.5;
 }
+
+html {
+	font-size: calc(var(--baseFontSize) * 1%);
+}
+
+body {
+	line-height: calc(var(--lineHeight) * 1rem);
+}
+
+p {
+	font-size: calc(var(--paragraph) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--paragraph) * 1rem / 4);
+}
+

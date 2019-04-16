@@ -11,7 +11,10 @@ module.exports = {
       options: {
         postCssPlugins: [
           require(`postcss-flexbugs-fixes`),
-          require(`autoprefixer`)()
+          require(`autoprefixer`)(),
+          require(`postcss-mixins`),
+          require(`postcss-nested`),
+          require(`postcss-simple-vars`)
         ],
       },
     },
