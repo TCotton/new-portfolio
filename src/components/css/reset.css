@@ -900,6 +900,11 @@ https://codeburst.io/keeping-aspect-ratio-with-html-and-no-padding-tricks-407056
 	max-width: 15rem;
 }
 
+.aspect-ratio {
+	width: 100vw;
+	height: calc(100vw * 9/16);
+}
+
 /* Reduced motion
 Article on this here: http://valhead.com/2017/06/23/reduced-motion-query/
 I would recommend testing this before using it

@@ -199,11 +199,11 @@ class ContactMeLeftLarge extends Component {
 				</h3>
 
 				<p className={`contact-form-success ${successFormDisplay}`}>
-					{'Success message here'}
+					{'Thank you for taking the time to fill out the form. I will contact you as soon as I can!'}
 				</p>
 
 				<p className={`contact-form-failure ${inputFormDisplay}`}>
-					{'Error message here'}
+					{'The form has not been submitted because of errors. Please review the form error messages and click submit again'}
 				</p>
 
 				<form
