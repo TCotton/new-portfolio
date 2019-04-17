@@ -1,5 +1,5 @@
-const hashing = require('../config/salt');
-const userId = require('../config/user_id');
+const hashing = process.env.salt;
+const userId = process.env.saluserIdt;
 const crypto = require('crypto');
 const Users = require('./models/user_model');
 

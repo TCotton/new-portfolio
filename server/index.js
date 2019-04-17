@@ -33,9 +33,9 @@ if (app.get('env') === 'production') {
 	app.use(helmet.hsts({ maxAge: 31536000 }));
 }
 
-const database = require('./server/config/database');
+const database = process.env.database;
 
-mongoose.connect(database.url);
+mongoose.connect(database);
 
 app.set('port', process.env.PORT || 3000);
 

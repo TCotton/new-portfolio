@@ -1,4 +1,5 @@
-const newsblur = require('./../config/newsblur');
+const newsblurUsername = process.env.newsblurUsername;
+const newsblurPassword = process.env.newsblurPassword;
 const http = require('http');
 const querystring = require('querystring');
 const q = require('q');
@@ -15,8 +16,8 @@ const req_authentication = function() {
   const deferred = q.defer();
 
   data = querystring.stringify({
-    username: newsblur.username,
-    password: newsblur.password,
+    username: newsblurUsername,
+    password: newsblurPassword,
   });
 
   options = {
