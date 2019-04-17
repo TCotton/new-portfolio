@@ -300,8 +300,8 @@ class ContactMeLeftLarge extends Component {
 							className='hide'
 							id='zipcode'
 							name='zipcode'
-							placeholder={zipcode.fieldName}
 							onChange={this.handleInputChange}
+							placeholder={zipcode.fieldName}
 							type='text'
 							value={zipcode.value}
 						/>

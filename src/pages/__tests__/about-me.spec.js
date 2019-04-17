@@ -7,7 +7,6 @@ import { StaticQuery } from 'gatsby'
 
 describe('About Me', () => {
 
-	let component, instance;
 	const mockStore = configureStore();
 	const store = mockStore();
 
@@ -37,15 +36,6 @@ describe('About Me', () => {
 
 	} );
 
-	beforeEach( () => {
-		component = renderer.create(
-			<Provider store={store}>
-				<AboutMe />
-			</Provider>
-		);
-		instance = component.getInstance();
-	});
-
 	it('renders correctly', () => {
 		const tree = renderer
 			.create(
@@ -56,9 +46,4 @@ describe('About Me', () => {
 			.toJSON()
 		expect(tree).toMatchSnapshot();
 	})
-
-/*	it('should call shouldComponentUpdate', () => {
-		const shouldUpdate = instance.shouldComponentUpdate();
-		expect(shouldUpdate).toBe(true);
-	});*/
 })

@@ -4,11 +4,9 @@ import SideProjects from '../side-projects';
 import { StaticQuery } from 'gatsby';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
-import ContactMe from '../contact-me'
 
 describe('SideProjects', () => {
 
-	let component, instance;
 	const mockStore = configureStore();
 	const store = mockStore();
 
@@ -48,11 +46,4 @@ describe('SideProjects', () => {
 			.toJSON()
 		expect( tree ).toMatchSnapshot();
 	} )
-/*
-
-
-	it('should call shouldComponentUpdate', () => {
-		const shouldUpdate = instance.shouldComponentUpdate();
-		expect(shouldUpdate).toBe(true);
-	});*/
 })

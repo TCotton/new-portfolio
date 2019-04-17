@@ -12,7 +12,6 @@ let _addReviewImage;
 let _newBlogPosts;
 let _mergeBlogPosts;
 let _closeBlogComments;
-let _promiseWithArray;
 let _grabOldBlogPosts;
 
 /**
@@ -49,11 +48,6 @@ const createJSONFile = function() {
 };
 
 createJSONFile();
-
-/**
- *
- * @constructor
- */
 
 const RSSClass = function() {
 
@@ -141,7 +135,7 @@ const RSSClass = function() {
       if (oldPosts[key].title) {
 
         // initially remove hyphens and the white space to their right
-        newTitle = oldPosts[key].title.replace(/\–\s/g, '').toLowerCase();
+        newTitle = oldPosts[key].title.replace(/–\s/g, '').toLowerCase();
 
         let x = 0;
         let l = stopwords.length;
@@ -266,7 +260,7 @@ const RSSClass = function() {
    * @private
    */
 
-  _promiseWithArray = function(anArray) {
+ /* const _promiseWithArray = function(anArray) {
 
     const returnedArray = [];
     let getAnArray;
@@ -280,7 +274,7 @@ const RSSClass = function() {
     });
 
     return returnedArray;
-  };
+  };*/
 
   /**
    *
@@ -336,7 +330,7 @@ RSSClass.prototype.blogItems = function(callback) {
   ], function(err, result) {
 
     if (err) {
-      res.send(err);
+      throw new Error(err.toString());
     }
 
     callback(result);
@@ -370,7 +364,7 @@ RSSClass.prototype.parseFeed = function(url, callback) {
     ], function(err) {
 
       if (err) {
-        res.send(err);
+        throw new Error(err.toString());
       }
 
       async.waterfall([
@@ -394,7 +388,7 @@ RSSClass.prototype.parseFeed = function(url, callback) {
       ], function(err, result) {
 
         if (err) {
-          res.send(err);
+          throw new Error(err.toString());
         }
 
         // set cache here
@@ -446,8 +440,6 @@ module.exports = function(app) {
         res.json(data);
 
       });
-
     }
   });
-
 };

@@ -14,7 +14,7 @@ import Header from './header';
 import Footer from './footer';
 import HomePageStats from './homepage-stats';
 import './css/reset.css';
-import styles from './layout.module.css';
+// import styles from './layout.module.css';
 import ErrorBoundary from '../helpers/error-boundary';
 
 const Count = `Count: `;
