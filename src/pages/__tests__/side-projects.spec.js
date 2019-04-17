@@ -42,7 +42,7 @@ describe('SideProjects', () => {
 		const tree = renderer
 			.create(
 				<Provider store={store}>
-					<SideProjects/>
+					<SideProjects />
 				</Provider>
 			)
 			.toJSON()
