@@ -93,6 +93,9 @@ class Layout extends Component {
 								<ConnectedCounter />
 								<HomePageStats />
 							</main>
+							<div>
+								{'container'}
+							</div>
 							<ErrorBoundary>
 								<Footer />
 							</ErrorBoundary>

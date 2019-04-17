@@ -64,12 +64,12 @@ Array [
           <p
             className="contact-form-success none"
           >
-            Success message here
+            Thank you for taking the time to fill out the form. I will contact you as soon as I can!
           </p>
           <p
             className="contact-form-failure block"
           >
-            Error message here
+            The form has not been submitted because of errors. Please review the form error messages and click submit again
           </p>
           <form
             name="contactForm"
@@ -212,6 +212,9 @@ Array [
       Minutes before I check my Twitter feed after I wake up
       Unit test coverage of this site using Karma and Jasmine
     </main>
+    <div>
+      container
+    </div>
     <footer
       className="footer"
     >

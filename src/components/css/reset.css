@@ -903,6 +903,12 @@ https://codeburst.io/keeping-aspect-ratio-with-html-and-no-padding-tricks-407056
 	height: calc(100vw * 9/16);
 }
 
+.full-bleed {
+	width: 100vw;
+	margin-left: 50%;
+	transform: translateX(-50%);
+}
+
 /* Reduced motion
 Article on this here: http://valhead.com/2017/06/23/reduced-motion-query/
 I would recommend testing this before using it
@@ -918,6 +924,7 @@ I would recommend testing this before using it
 :root {
 	--baseFontSize: 62.5;
 	--lineHeight: 2.5;
+	--marginTop: 1.5;
 	--paragraph: 1.5;
 }
 
@@ -932,5 +939,12 @@ body {
 p {
 	font-size: calc(var(--paragraph) * 1rem);
 	margin-bottom: calc(var(--lineHeight) / var(--paragraph) * 1rem / 4);
+}
+
+/**
+check for this
+ */
+* + * {
+	margin-top: calc(var(--marginTop) * 1rem);
 }
 
