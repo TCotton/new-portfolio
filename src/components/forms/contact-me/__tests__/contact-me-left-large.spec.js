@@ -1,27 +1,43 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, fireEvent } from 'react-testing-library';
+import axiosMock from 'axios'
 import ContactMeLeftLarge from '../contact-me-left-large';
 
-describe('ContactMeLeftLarge', () => {
+describe( 'ContactMeLeftLarge', () => {
 
-	let component, instance;
+	it( 'renders correctly', () => {
+		const { asFragment } = render( <ContactMeLeftLarge /> );
+		expect( asFragment() ).toMatchSnapshot();
+	} )
 
-	beforeEach( () => {
-		component = renderer.create(
-			<ContactMeLeftLarge />
-		);
-		instance = component.getInstance();
-	});
+	test( 'ContactMeLeftLarge should not submit if value added to spam trap zipoode field', () => {
 
-	it('renders correctly', () => {
-		const tree = renderer
-			.create(<ContactMeLeftLarge />)
-			.toJSON()
-		expect(tree).toMatchSnapshot();
-	})
+		const { getByTestId } = render( <ContactMeLeftLarge /> )
 
-	it('should call shouldComponentUpdate', () => {
-		const shouldUpdate = instance.shouldComponentUpdate();
-		expect(shouldUpdate).toBe(true);
-	});
-})
+		let newItem = 'This is a name'
+		fireEvent.change( getByTestId( 'name' ), { target: { value: newItem } } )
+		getByTestId( 'addBtn' ).click();
+
+		expect(axiosMock.post).not.toHaveBeenCalledTimes(1)
+
+	} )
+
+
+	test( 'ContactMeLeftLarge should submit if all name, email and message fields are correct', () => {
+
+		const { getByTestId } = render( <ContactMeLeftLarge /> )
+
+		let newName = 'This is a name';
+		let newEmail = 'me@andywalpole.me';
+		let newMessage = 'This is a message';
+
+		fireEvent.change( getByTestId( 'name' ), { target: { value: newName } } );
+		fireEvent.change( getByTestId( 'email' ), { target: { value: newEmail } } );
+		fireEvent.change( getByTestId( 'message' ), { target: { value: newMessage } } );
+		getByTestId( 'addBtn' ).click();
+
+		expect(axiosMock.post).toHaveBeenCalledTimes(1);
+
+	} )
+
+} );

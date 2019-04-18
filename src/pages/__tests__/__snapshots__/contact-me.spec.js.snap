@@ -88,6 +88,7 @@ Array [
               </label>
               <input
                 className="form-input"
+                data-testid="name"
                 id="name"
                 maxLength="64"
                 name="name"
@@ -112,6 +113,7 @@ Array [
                 autoCapitalize="off"
                 autoCorrect="off"
                 className="form-input"
+                data-testid="email"
                 id="email"
                 maxLength="64"
                 name="email"
@@ -135,6 +137,7 @@ Array [
               <textarea
                 className="form-textarea"
                 cols="10"
+                data-testid="message"
                 id="message"
                 maxLength="1000"
                 name="message"
@@ -156,6 +159,7 @@ Array [
               </label>
               <input
                 className="hide"
+                data-testid="zipcode"
                 id="zipcode"
                 name="zipcode"
                 onChange={[Function]}
@@ -166,6 +170,7 @@ Array [
             </span>
             <input
               className="button-contact"
+              data-testid="addBtn"
               type="submit"
               value="Send message"
             />

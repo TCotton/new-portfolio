@@ -251,6 +251,7 @@ class ContactMeLeftLarge extends Component {
 
 						<input
 							className='form-input'
+							data-testid='name'
 							id='name'
 							maxLength='64'
 							name='name'
@@ -277,6 +278,7 @@ class ContactMeLeftLarge extends Component {
 							autoCapitalize='off'
 							autoCorrect='off'
 							className='form-input'
+							data-testid='email'
 							id='email'
 							maxLength='64'
 							name='email'
@@ -302,6 +304,7 @@ class ContactMeLeftLarge extends Component {
 						<textarea
 							className='form-textarea'
 							cols='10'
+							data-testid='message'
 							id='message'
 							maxLength='1000'
 							name='message'
@@ -325,6 +328,7 @@ class ContactMeLeftLarge extends Component {
 
 						<input
 							className='hide'
+							data-testid='zipcode'
 							id='zipcode'
 							name='zipcode'
 							onChange={this.handleInputChange}
@@ -337,6 +341,7 @@ class ContactMeLeftLarge extends Component {
 
 					<input
 						className='button-contact'
+						data-testid='addBtn'
 						type='submit'
 						value='Send message'
 					/>

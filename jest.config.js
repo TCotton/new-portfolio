@@ -19,7 +19,8 @@ module.exports = {
 		'coverage/*',
 		'public/*',
 		'jest-preprocess.js',
-		'examples/*'
+		'examples/*',
+		'server/*'
 	],
 	transform: {
 		"^.+\\.jsx?$": `<rootDir>/jest-preprocess.js`,
