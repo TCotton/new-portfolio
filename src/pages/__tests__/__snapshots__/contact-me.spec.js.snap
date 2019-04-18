@@ -148,9 +148,7 @@ Array [
                 value=""
               />
             </span>
-            <span
-              className="hide"
-            >
+            <span>
               <label
                 className="hide"
                 htmlFor="zipcode"
@@ -158,7 +156,6 @@ Array [
                 zipcode
               </label>
               <input
-                className="hide"
                 data-testid="zipcode"
                 id="zipcode"
                 name="zipcode"

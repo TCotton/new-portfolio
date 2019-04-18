@@ -111,9 +111,7 @@ exports[`ContactMeLeftLarge renders correctly 1`] = `
           rows="10"
         />
       </span>
-      <span
-        class="hide"
-      >
+      <span>
         <label
           class="hide"
           for="zipcode"
@@ -121,7 +119,6 @@ exports[`ContactMeLeftLarge renders correctly 1`] = `
           zipcode
         </label>
         <input
-          class="hide"
           data-testid="zipcode"
           id="zipcode"
           name="zipcode"

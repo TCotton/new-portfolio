@@ -85,7 +85,7 @@ class ContactMeLeftLarge extends Component {
 					type,
 					typeMismatch, // use typeMismatch when format is incorrect(e.g. incorrect email)
 					value,
-					valid: x.checkValidity()
+					valid: name === 'zipcode' && value.trim().length > 0 ? false : x.checkValidity()
 				};
 			})
 			.reduce((acc, currVal) => {
@@ -317,7 +317,7 @@ class ContactMeLeftLarge extends Component {
 
 					</span>
 
-					<span className='hide'>
+					<span>
 
 						<label
 							className='hide'
@@ -327,7 +327,6 @@ class ContactMeLeftLarge extends Component {
 						</label>
 
 						<input
-							className='hide'
 							data-testid='zipcode'
 							id='zipcode'
 							name='zipcode'
