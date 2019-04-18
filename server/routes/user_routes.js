@@ -18,7 +18,6 @@ function createPasswordHash(password) {
 
   // read out hmac digest
   return hmac.read();
-
 }
 
 module.exports = function(app) {
@@ -44,9 +43,7 @@ module.exports = function(app) {
       if (user) {
         res.json(user);
       }
-
     });
-
   });
 
 
@@ -81,9 +78,7 @@ module.exports = function(app) {
       if (users) {
         res.json(users);
       }
-
     });
-
   });
 
 
@@ -106,9 +101,7 @@ module.exports = function(app) {
         usr = userId.id;
         res.json(usr);
       }
-
     });
-
   });
 
 
@@ -138,13 +131,8 @@ module.exports = function(app) {
           } else {
             res.json('Success');
           }
-
         });
-
       }
-
     });
-
   });
-
 };
