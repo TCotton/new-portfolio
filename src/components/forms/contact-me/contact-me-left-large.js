@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
+import { homeURI } from '../../../helpers/helper_constants';
 
 const ErrorValidationAlert = ({ txtLbl }) => (
 	<span
@@ -12,7 +14,11 @@ const ErrorValidationAlert = ({ txtLbl }) => (
 );
 
 ErrorValidationAlert.propTypes = {
-	txtLbl: PropTypes.string.isRequired
+	txtLbl: PropTypes.string
+}
+
+ErrorValidationAlert.defaultProps = {
+	txtLbl: ''
 }
 
 const txtFieldState = {
@@ -114,15 +120,37 @@ class ContactMeLeftLarge extends Component {
 		event.preventDefault();
 
 		const form = event.target;
+		// const { email: { value: emailDetails }, message: { value: messageDetails }, name: { value: nameDetails } } = this.state;
 
 		// extract specific properties in Constraint Validation API using this code snippet
-		const formValues = this.reduceFormValues(form.elements);
-		const allFieldsValid = this.checkAllFieldsValid(formValues);
+		const formValues = this.reduceFormValues( form.elements );
+		const allFieldsValid = this.checkAllFieldsValid( formValues );
 		//note: put ajax calls here to persist the form inputs in the database.
 
+		if( allFieldsValid ) {
+
+			axios.post( `${homeURI}/api/sendmail`, { ...formValues } )
+				.then( res => {
+
+					if( res.data.error ) {
+						this.setState( { error: res.data.error } );
+					}
+
+					if( res ) {
+						if( res.data.success ) {
+							this.setState( { message: res.data.message }, () => {
+								document.querySelector( 'body' ).scrollTop = 0;
+							} );
+						}
+					}
+
+				} ).catch( ( e ) => {
+				this.setState( { error: e.toString() } );
+			} )
+		}
 		//END
 
-		this.setState({ ...formValues, allFieldsValid }); // set the state based on the extracted values from Constraint Validation API
+		this.setState( { ...formValues, allFieldsValid } ); // set the state based on the extracted values from Constraint Validation API
 	}
 
 	handleInputChange (event) {
@@ -136,7 +164,6 @@ class ContactMeLeftLarge extends Component {
 				value: targetValue
 			}
 		});
-
 	}
 
 	render () {

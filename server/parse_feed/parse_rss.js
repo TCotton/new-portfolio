@@ -296,7 +296,6 @@ const RSSClass = function() {
     });
 
     return deferred.promise;
-
   };
 
 };
@@ -335,7 +334,6 @@ RSSClass.prototype.blogItems = function(callback) {
 
     callback(result);
   });
-
 };
 
 RSSClass.prototype.parseFeed = function(url, callback) {
@@ -399,11 +397,8 @@ RSSClass.prototype.parseFeed = function(url, callback) {
         callback(result);
 
       });
-
     });
-
   });
-
 };
 
 module.exports = function(app) {
@@ -420,7 +415,6 @@ module.exports = function(app) {
       if (err) {
         createJSONFile();
       }
-
     });
 
     // if oldBlogPosts are in the cache then don't use the parseFeed method
