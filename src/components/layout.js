@@ -13,7 +13,9 @@ import { connect } from 'react-redux'
 import Header from './header';
 import Footer from './footer';
 import HomePageStats from './homepage-stats';
+import './css/variables.css'
 import './css/reset.css';
+import './css/global.css';
 // import styles from './layout.module.css';
 import ErrorBoundary from '../helpers/error-boundary';
 

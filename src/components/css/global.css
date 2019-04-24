@@ -1,0 +1,61 @@
+:root {
+	--baseFontSize: 62.5;
+	--lineHeight: 2.5;
+	--marginTop: 1.5;
+	--paragraph: 1.5;
+	--h1: 3;
+	--h2: 3;
+	--h3: 3;
+	--h4: 3;
+	--h5: 3;
+	--h6: 3;
+}
+
+
+html {
+	font-size: calc(var(--baseFontSize) * 1%);
+}
+
+body {
+	line-height: calc(var(--lineHeight) * 1rem);
+}
+
+:root h1 {
+	font-size: calc(var(--h1) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+:root h2 {
+	font-size: calc(var(--h2) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+:root h3 {
+	font-size: calc(var(--h3) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+:root h4 {
+	font-size: calc(var(--h4) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+:root h5 {
+	font-size: calc(var(--h5) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+:root h6 {
+	font-size: calc(var(--h6) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--h1) * 1rem);
+}
+
+
+:root p {
+	font-size: calc(var(--paragraph) * 1rem);
+	margin-bottom: calc(var(--lineHeight) / var(--paragraph) * 1rem / 4);
+}
+
+:root * + * {
+	margin-top: calc(var(--marginTop) * 1rem);
+}
