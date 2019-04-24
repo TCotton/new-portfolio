@@ -8,7 +8,6 @@ import { Provider } from 'react-redux';
 
 describe( 'ContactMe', () => {
 
-	let component, instance;
 	const mockStore = configureStore();
 	const store = mockStore();
 
@@ -38,17 +37,6 @@ describe( 'ContactMe', () => {
 
 	} );
 
-	beforeEach( () => {
-
-		component = renderer.create(
-			<Provider store={store}>
-				<ContactMe />
-			</Provider>
-		);
-		// returns provider rather than ContactMe instance
-		instance = component.getInstance();
-	} );
-
 	it( 'renders correctly', () => {
 		const tree = renderer
 			.create(
@@ -59,11 +47,5 @@ describe( 'ContactMe', () => {
 			.toJSON()
 		expect( tree ).toMatchSnapshot();
 	} )
-/*
-	it( 'should call shouldComponentUpdate', () => {
-
-		const shouldUpdate = instance.shouldComponentUpdate();
-		expect( shouldUpdate ).toBe( true );
-	} );*/
 } )
 /* eslint-enable */
