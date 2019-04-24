@@ -86,7 +86,36 @@ class Seo extends Component {
 								.concat(meta)}
 							title={title}
 							titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-						/>
+						>
+							<script>
+								{`(() => {
+    								let e = document.createElement('script');
+										e.type = 'text/javascript';
+										e.id = 'twitter-script';
+										e.src = '//platform.twitter.com/widgets.js';
+										e.defer = true;
+										let script = document.getElementsByTagName('script')[0];
+										script.parentNode.insertBefore(e, script);
+								
+								
+										e = document.createElement('script');
+										e.type = 'text/javascript';
+										e.id = 'vine-script';
+										e.src = '//platform.vine.co/static/scripts/embed.js';
+										e.defer = true;
+										script = document.getElementsByTagName('script')[0];
+										script.parentNode.insertBefore(e, script);
+								
+										e = document.createElement('script');
+										e.type = 'text/javascript';
+										e.id = 'code-pen-script';
+										e.src = '//codepen.io/assets/embed/ei.js';
+										e.defer = true;
+										script = document.getElementsByTagName('script')[0];
+										script.parentNode.insertBefore(e, script);
+								})()`}
+							</script>
+						</Helmet>
 					)
 				}}
 			/>
