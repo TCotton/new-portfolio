@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { homeURI } from '../../../helpers/helper_constants';
 
-const ErrorValidationAlert = ({ txtLbl }) => (
+const ErrorValidationAlert = ( { txtLbl } ) => (
 	<span
 		className='form-error-message'
 		role='alert'
@@ -30,8 +29,8 @@ const txtFieldState = {
 
 class ContactMeLeftLarge extends Component {
 
-	constructor(props) {
-		super(props);
+	constructor ( props ) {
+		super( props );
 
 		this.handleSubmit = this.handleSubmit.bind( this );
 		this.handleInputChange = this.handleInputChange.bind( this );
@@ -66,17 +65,22 @@ class ContactMeLeftLarge extends Component {
 		allFieldsValid: false
 	}
 
+	componentDidMount () {
+		/* must be refactored to use callback: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-did-mount-set-state.md */
+		this.setState( { homeURI: window.location.protocol + '//' + window.location.hostname + ( window.location.port.length === 0 ? '' : ':3000' ) } ); // eslint-disable-line react/no-did-mount-set-state
+	}
+
 	shouldComponentUpdate () {
 		return true;
 	}
 
 	reduceFormValues = formElements => {
-		const arrElements = Array.from(formElements);
+		const arrElements = Array.from( formElements );
 
 		// extract specific properties in Constraint Validation API using this code snippet
 		const formValues = arrElements
-			.filter(elem => elem.name.length > 0)
-			.map(x => {
+			.filter( elem => elem.name.length > 0 )
+			.map( x => {
 				const { typeMismatch } = x.validity;
 				const { name, type, value } = x;
 
@@ -87,15 +91,15 @@ class ContactMeLeftLarge extends Component {
 					value,
 					valid: name === 'zipcode' && value.trim().length > 0 ? false : x.checkValidity()
 				};
-			})
-			.reduce((acc, currVal) => {
+			} )
+			.reduce( ( acc, currVal ) => {
 				//use reduce, ready to put it in our state
 				const { value, valid, typeMismatch } = currVal;
 				const { fieldName, requiredTxt, formatErrorTxt } = this.state[ currVal.name ]; // eslint-disable-line
 				//get the rest of properties inside the state object
 
 				// map these properties back to state so we use reducer...
-				acc[currVal.name] = {
+				acc[ currVal.name ] = {
 					value,
 					valid,
 					typeMismatch,
@@ -105,15 +109,15 @@ class ContactMeLeftLarge extends Component {
 				};
 
 				return acc;
-			}, {});
+			}, {} );
 
 		return formValues;
 	};
 
 	checkAllFieldsValid = formValues => {
-		return !Object.keys(formValues)
-			.map(x => formValues[x])
-			.some(field => !field.valid);
+		return !Object.keys( formValues )
+			.map( x => formValues[ x ] )
+			.some( field => !field.valid );
 	};
 
 	handleSubmit ( event ) {
@@ -128,6 +132,8 @@ class ContactMeLeftLarge extends Component {
 		//note: put ajax calls here to persist the form inputs in the database.
 
 		if( allFieldsValid ) {
+
+			const { homeURI } = this.state;
 
 			axios.post( `${homeURI}/api/sendmail`, { ...formValues } )
 				.then( res => {
@@ -153,17 +159,17 @@ class ContactMeLeftLarge extends Component {
 		this.setState( { ...formValues, allFieldsValid } ); // set the state based on the extracted values from Constraint Validation API
 	}
 
-	handleInputChange (event) {
+	handleInputChange ( event ) {
 
 		const target = event.target;
 		const targetValue = target.value;
 		const name = target.name;
 
-		this.setState({
-			[name]: {
+		this.setState( {
+			[ name ]: {
 				value: targetValue
 			}
-		});
+		} );
 	}
 
 	render () {
@@ -190,13 +196,13 @@ class ContactMeLeftLarge extends Component {
 		const renderNameValidationError = name.valid ? (
 			''
 		) : (
-			<ErrorValidationAlert txtLbl={name.requiredTxt} />
+			<ErrorValidationAlert txtLbl={name.requiredTxt}/>
 		);
 
 		const renderMessageValidationError = message.valid ? (
 			''
 		) : (
-			<ErrorValidationAlert txtLbl={message.requiredTxt} />
+			<ErrorValidationAlert txtLbl={message.requiredTxt}/>
 		);
 
 		return (
@@ -208,7 +214,7 @@ class ContactMeLeftLarge extends Component {
 
 					<p>
 						{'Andy Walpole'}
-						<br />
+						<br/>
 						{'Web Developer'}
 					</p>
 
