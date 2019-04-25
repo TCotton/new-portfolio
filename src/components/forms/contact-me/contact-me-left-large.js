@@ -196,13 +196,13 @@ class ContactMeLeftLarge extends Component {
 		const renderNameValidationError = name.valid ? (
 			''
 		) : (
-			<ErrorValidationAlert txtLbl={name.requiredTxt}/>
+			<ErrorValidationAlert txtLbl={name.requiredTxt} />
 		);
 
 		const renderMessageValidationError = message.valid ? (
 			''
 		) : (
-			<ErrorValidationAlert txtLbl={message.requiredTxt}/>
+			<ErrorValidationAlert txtLbl={message.requiredTxt} />
 		);
 
 		return (
@@ -214,7 +214,7 @@ class ContactMeLeftLarge extends Component {
 
 					<p>
 						{'Andy Walpole'}
-						<br/>
+						<br />
 						{'Web Developer'}
 					</p>
 
