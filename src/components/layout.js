@@ -16,6 +16,7 @@ import HomePageStats from './homepage-stats';
 import './css/variables.css'
 import './css/reset.css';
 import './css/global.css';
+import './css/prism.css';
 // import styles from './layout.module.css';
 import ErrorBoundary from '../helpers/error-boundary';
 
