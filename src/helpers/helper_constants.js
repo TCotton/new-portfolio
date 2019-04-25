@@ -31,7 +31,7 @@ export function addSEOFriendlyURL(contentTitle) {
 
 	const regexNonAlphaNum = /[^\-a-z0-9]/g;
 	const regexWhiteSpace = /\s/gi;
-	const twoDashes = /[\-]{2}/g;
+	const twoDashes = /[-]{2}/g;
 	let x;
 	let l;
 	let newTitle;
