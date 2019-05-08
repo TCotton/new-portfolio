@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
@@ -70,6 +63,7 @@ class Layout extends Component {
 
 	constructor (props) {
 		super(props);
+		console.dir(this.props);
 	}
 
 	render () {
