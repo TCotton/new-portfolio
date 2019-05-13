@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
 import Header from './header';
 import Footer from './footer';
 import HomePageStats from './homepage-stats';
-import './css/variables.css'
+import './css/variables.css';
 import './css/reset.css';
 import './css/global.css';
 import './css/prism.css';
